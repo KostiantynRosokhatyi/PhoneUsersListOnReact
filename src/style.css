@@ -1,0 +1,45 @@
+.inputs {
+    width: 150px;
+    margin: 10px 10px 10px 25px;
+}
+
+.inputs_email {
+    width: 200px;
+}
+
+.span_name {
+    user-select: none;
+    font-family: Roboto, sans-serif, inherit;
+    font-size: 18px;
+    text-align: right;
+    background: #fff;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.contacts_table {
+    margin: 10px;
+    width: 30%;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+}
+
+.search_area {
+    margin: 30px 10px 10px 25px;
+}
+
+.buttons {
+    margin: 5px 0 5px 0;
+}
+
+.nameDelete__icon {
+    text-align: center;
+
+    margin-top: 7px;
+    cursor: pointer;
+    display: inline-block;
+
+}
