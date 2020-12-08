@@ -1,6 +1,29 @@
 .inputs {
     width: 150px;
     margin: 10px 10px 10px 25px;
+
+}
+
+.noValid:focus {
+    box-shadow: 0 0 5px rgba(236, 13, 13, 0.5);
+}
+
+.Valid:focus {
+    box-shadow: 0 0 5px rgb(27, 117, 61);
+}
+
+.noValid {
+    border: 1px solid red !important;
+    width: 150px;
+    margin: 10px 10px 10px 25px;
+    box-shadow: 0 0 5px rgba(236, 13, 13, 0.5);
+}
+
+.Valid {
+    border: 1px solid green !important;
+    width: 150px;
+    margin: 10px 10px 10px 25px;
+    box-shadow: 0 0 5px rgb(27, 117, 61);
 }
 
 .inputs_email {
@@ -14,12 +37,12 @@
     text-align: right;
     background: #fff;
     font-weight: 400;
-    cursor: pointer;
+
 }
 
 .contacts_table {
     margin: 10px;
-    width: 30%;
+    width: 100%;
 }
 
 li {
@@ -41,5 +64,4 @@ li {
     margin-top: 7px;
     cursor: pointer;
     display: inline-block;
-
 }

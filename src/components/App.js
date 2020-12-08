@@ -3,34 +3,55 @@ import Contacts from "./Contacts.js";
 import 'antd/dist/antd.css';
 import '../style.css'
 // @ts-ignore
-import contacts from "../contacts.json"
-import {Button, Input} from 'antd';
+
 import Search from "antd/es/input/Search";
 import {BrowserRouter as Router, Switch, Route,} from 'react-router-dom';
 import Contact from "./Contact";
 import {v4 as uuidv4} from 'uuid';
 import InputForm from './InputForm'
-import InputErrors from "./InputErrors";
+import {message} from "antd";
+import ChangeContact from "./ChangeContact";
 
 const App = () => {
-    const [contactsData, setContactsData] = useState(contacts)
-    const [phoneContacts, setPhoneContacts] = useState(contacts)
+    const [contactsData, setContactsData] = useState([])
+    const [phoneContacts, setPhoneContacts] = useState([])
     const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
+    const [number, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [filterName, setFilterName] = useState('')
+    const [emailValid, setEmailValid] = useState('false')
+    const [phoneValid, setPhoneValid] = useState("false")
+    const [nameValid, setNameValid] = useState("false")
+    const [borderName, setNameBorder] = useState('inputs')
+    const [borderPhone, setPhoneBorder] = useState('inputs')
+    const [borderEmail, setEmailBorder] = useState('inputs')
 
-    /*
-        const [emailValid, setEmailValid] = useState('false')
-        const [phoneValid, setPhoneValid] = useState('false')
-        const [nameValid, setNameValid] = useState('false')
-        const [inputsValid, setInputsValid] = useState('false')
+    const getData = () => {
+        fetch('http://localhost:3000/contacts.json'
+            , {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            }
+        )
+            .then(function (response) {
+                console.log(response)
+                return response.json();
+            })
+            .then(function (myJson) {
+                console.log(myJson);
+                setContactsData(myJson)
+                setPhoneContacts(myJson)
+            });
+    }
+    useEffect(() => {
+        getData()
+    }, [])
 
-        const [inputsErrors, setInputsErrors] = useState({name: '', email: '', phone: ''})
-
-    */
 
     const removeItem = value => {
+
         return phoneContacts.filter(item => item.name !== value)
     }
 
@@ -41,29 +62,63 @@ const App = () => {
     const onClick = value => {
         setPhoneContacts(removeItem(value))
     }
+    const success = () => {
+        message.success('User id Added');
+    };
 
     const handleChangeName = event => {
-        setName(event.target.value)
+        if (/^[A-ZА-ЯЁ][a-zа-яё]{2,}$/.test(event.target.value)) {
+            setName(event.target.value)
+            console.log("Name ok")
+            setNameBorder('Valid')
+            setNameValid('true')
+        } else {
+            setNameBorder('noValid')
+        }
     }
 
-
-//sone next
-
     const handleChangePhone = event => {
-        setPhone(event.target.value)
+        if (/^\+?3?8?(0\d{9})$/.test(event.target.value)) {
+            setPhone(event.target.value)
+            setPhoneBorder('Valid')
+            setPhoneValid('true')
+        } else {
+            setPhoneBorder('noValid')
+            setPhoneValid('false')
+        }
     }
 
     const handleChangeEmail = event => {
-        setEmail(event.target.value)
-
+        if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(event.target.value)) {
+            setEmail(event.target.value)
+            setEmailBorder("Valid")
+            setEmailValid('true')
+        } else {
+            console.log("Wrong email")
+            setEmailBorder("noValid")
+            setEmailValid('false')
+        }
     }
 
     const handleAdd = event => {
-        const newList = phoneContacts.concat({id: uuidv4(), name, phone, email})
-        console.log(newList)
-        setPhoneContacts(newList);
-        setContactsData(newList)
-        event.preventDefault();
+        if (emailValid === 'true' && nameValid === 'true' && phoneValid === 'true') {
+            const newList = phoneContacts.concat({id: uuidv4(), name, number, email})
+            console.log(newList, ".....data")
+            setPhoneContacts(newList);
+            setContactsData(newList)
+            event.preventDefault();
+            success()
+        } else {
+            if (email === '') {
+                setEmailBorder('noValid')
+            }
+            if (number === '') {
+                setPhoneBorder('noValid')
+            }
+            if (name === '') {
+                setNameBorder('noValid')
+            }
+        }
     }
     const filterNames = () => {
         const filteredNames = contactsData.filter(name => {
@@ -77,10 +132,13 @@ const App = () => {
             <Router>
                 <Switch>
                     <Route exact path='/'>
-
                         <InputForm
                             handleAdd={handleAdd} handleChangeName={handleChangeName}
-                            handleChangePhone={handleChangePhone} handleChangeEmail={handleChangeEmail}/>
+                            handleChangePhone={handleChangePhone} handleChangeEmail={handleChangeEmail}
+                            borderName={borderName}
+                            borderPhone={borderPhone}
+                            borderEmail={borderEmail}
+                        />
                         <br/>
                         <Search placeholder="Find contacts" className="search_area" onChange={handleChangeFilter}
                                 onKeyUp={filterNames} style={{width: 200}}/>
@@ -90,6 +148,9 @@ const App = () => {
                     </Route>
                     <Route exact path='/contacts'>
                         <Contact/>
+                    </Route>
+                    <Route exact path='/change'>
+                        <ChangeContact/>
                     </Route>
                 </Switch>
             </Router>
