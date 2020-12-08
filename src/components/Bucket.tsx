@@ -1,5 +1,6 @@
 import React from 'react'
 
+// @ts-ignore
 function Bucket(props) {
     const {onClick} = props;
     return (

@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+// @ts-ignore
 function Contact(props) {
     const {phoneContact} = props
     return (

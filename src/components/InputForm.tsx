@@ -3,6 +3,7 @@ import 'react-phone-input-2/lib/style.css'
 import {Button, Form, Input} from 'antd';
 
 
+// @ts-ignore
 const InputForm = (props) => {
     const {
         handleChangeName,
@@ -23,7 +24,7 @@ const InputForm = (props) => {
                        name="number" type="text"/>
                 <Input className={borderEmail} placeholder="E-mail" type="email" onChange={handleChangeEmail}
                        required/>
-                <Button type="submit" onClick={handleAdd}>Add</Button>
+                <Button onClick={handleAdd}>Add</Button>
             </Form>
 
         </div>
