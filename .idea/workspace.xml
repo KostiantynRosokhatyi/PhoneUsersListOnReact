@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4eab4ab-8402-48fd-8360-c208f618ad2b" name="Default Changelist" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -79,6 +84,7 @@
       <workItem from="1613055126935" duration="655000" />
       <workItem from="1614241633619" duration="106000" />
       <workItem from="1616174982595" duration="1396000" />
+      <workItem from="1616605813792" duration="301000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1607009127170</created>
