@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/PhoneUsersListOnReact/static/css/main.1c60ab8b.chunk.css",
+    "main.js": "/PhoneUsersListOnReact/static/js/main.1d58e056.chunk.js",
+    "main.js.map": "/PhoneUsersListOnReact/static/js/main.1d58e056.chunk.js.map",
+    "runtime-main.js": "/PhoneUsersListOnReact/static/js/runtime-main.7ef13c5d.js",
+    "runtime-main.js.map": "/PhoneUsersListOnReact/static/js/runtime-main.7ef13c5d.js.map",
+    "static/css/2.f92f284b.chunk.css": "/PhoneUsersListOnReact/static/css/2.f92f284b.chunk.css",
+    "static/js/2.9a9c2ae0.chunk.js": "/PhoneUsersListOnReact/static/js/2.9a9c2ae0.chunk.js",
+    "static/js/2.9a9c2ae0.chunk.js.map": "/PhoneUsersListOnReact/static/js/2.9a9c2ae0.chunk.js.map",
+    "index.html": "/PhoneUsersListOnReact/index.html",
+    "static/css/2.f92f284b.chunk.css.map": "/PhoneUsersListOnReact/static/css/2.f92f284b.chunk.css.map",
+    "static/css/main.1c60ab8b.chunk.css.map": "/PhoneUsersListOnReact/static/css/main.1c60ab8b.chunk.css.map",
+    "static/js/2.9a9c2ae0.chunk.js.LICENSE.txt": "/PhoneUsersListOnReact/static/js/2.9a9c2ae0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ef13c5d.js",
+    "static/css/2.f92f284b.chunk.css",
+    "static/js/2.9a9c2ae0.chunk.js",
+    "static/css/main.1c60ab8b.chunk.css",
+    "static/js/main.1d58e056.chunk.js"
+  ]
+}
